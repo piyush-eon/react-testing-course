@@ -19,20 +19,20 @@ describe("UserCard", () => {
 
     // Assert using formatNumber so it always matches no matter what mock values you use
     expect(
-      screen.getByText(formatNumber(mockUser.public_repos))
+      screen.getByText(formatNumber(mockUser.public_repos)),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(formatNumber(mockUser.followers))
+      screen.getByText(formatNumber(mockUser.followers)),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(formatNumber(mockUser.following))
+      screen.getByText(formatNumber(mockUser.following)),
     ).toBeInTheDocument();
   });
 
   it("does not render bio or location when they are null", () => {
     render(<UserCard user={mockUserMinimal} />);
 
-    expect(screen.queryByText(/full stack/i)).not.toBeInTheDocument();
-    expect(screen.queryByText("India")).not.toBeInTheDocument();
+    expect(screen.queryByText(mockUser.bio!)).not.toBeInTheDocument();
+    expect(screen.queryByText(mockUser.location!)).not.toBeInTheDocument();
   });
 });
