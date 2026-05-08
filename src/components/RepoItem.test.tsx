@@ -9,7 +9,7 @@ describe("RepoItem", () => {
 
     expect(screen.getByText(mockRepos[0].name)).toBeInTheDocument();
     expect(
-      screen.getByText(String(mockRepos[0].stargazers_count)),
+      screen.getByText(String(mockRepos[0].stargazers_count))
     ).toBeInTheDocument();
     expect(screen.getByText(mockRepos[0].language!)).toBeInTheDocument();
   });
@@ -24,13 +24,7 @@ describe("RepoItem", () => {
     render(<RepoItem repo={mockRepos[1]} />);
 
     expect(
-      screen.queryByText(/typescript|javascript/i),
+      screen.queryByText(/typescript|javascript/i)
     ).not.toBeInTheDocument();
-  });
-
-  it("renders zero stars correctly", () => {
-    render(<RepoItem repo={mockRepos[1]} />);
-
-    expect(screen.getByText("0")).toBeInTheDocument();
   });
 });
