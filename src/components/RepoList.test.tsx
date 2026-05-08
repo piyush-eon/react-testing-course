@@ -15,7 +15,7 @@ describe("RepoList", () => {
     render(<RepoList repos={[]} />);
 
     expect(
-      screen.getByText(/no public repositories found/i)
+      screen.getByText(/no public repositories found/i),
     ).toBeInTheDocument();
   });
 });

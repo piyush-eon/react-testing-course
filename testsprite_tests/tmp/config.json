@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5173",
+  "executionArgs": {
+    "projectName": "react-testing-course",
+    "projectPath": "D:/Coding/RC Tutorials/React Testing Course/react-testing-course",
+    "testIds": [],
+    "additionalInstruction": "Generate robust frontend E2E tests for GitHub User Finder core flows: initial idle state, valid username search, non-existent username error handling, retry/reset behavior, repository list rendering, external links with target blank and rel safety, and loading state transitions. Prefer stable selectors using accessible roles/text rather than brittle CSS selectors.",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-6Du4CoLnUWgGvM0Z-neV8kW3QqLBIIuXqQkyFd2TeUi7H4TGFMzf742qhAHvInFoMkoNmfhH_mvu7rivh0dPSO4gvfSUvyyEhNNBpft8T3vZ1efan8bZg0nuECjj7nI30Nk"
+    }
+  },
+  "serverPort": 60007,
+  "proxy": "http://0c1b2930-76b0-4df9-a552-8396c3231a37:kLVr5BjfebP0YQyYQ6lvpeTbqQAL5juO@tun.testsprite.com:8080"
+}

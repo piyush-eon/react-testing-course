@@ -1,0 +1,515 @@
+[
+  {
+    "id": "TC001",
+    "title": "Search a valid username and view the profile and repositories",
+    "description": "This test verifies that a visitor can search for a valid GitHub username from the empty state and see the loaded profile card and recent repositories.",
+    "category": "Username Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an empty search state is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a loading indicator is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Show an empty input error after submitting without a username",
+    "description": "This test verifies that submitting the search form with no username shows an inline validation error and leaves the app ready for correction.",
+    "category": "Error and Reset States",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form without entering a username"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an inline validation error is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a username"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the inline validation error clears while typing"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Find a GitHub user from the empty state",
+    "description": "This test verifies that a valid username search from the empty state loads the profile card and recent repositories section.",
+    "category": "Error and Reset States",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a user profile card is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a recent repositories section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Block empty search submission with validation",
+    "description": "This test verifies that submitting an empty search shows a missing-input validation message and keeps the user on the search state.",
+    "category": "Username Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an inline validation message is visible for missing input"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Return to the empty state after a failed search",
+    "description": "This test verifies that the retry or reset control returns the app from an error state back to the initial empty state.",
+    "category": "Error and Reset States",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a non-existent GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "action",
+        "description": "Choose to try again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the empty state is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the search field is ready for a new username"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Submit a username by pressing Enter",
+    "description": "This test verifies that a visitor can search for a valid GitHub username using the keyboard and see the app begin loading the request.",
+    "category": "Username Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Press Enter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a loading indicator is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Show a not-found error for an unknown username",
+    "description": "This test verifies that searching for a username that does not exist shows a not-found error state instead of profile results.",
+    "category": "Error and Reset States",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a non-existent GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a user-not-found error is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify profile results are not displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "View the full profile card for a valid user",
+    "description": "This test verifies that a successful search displays the user profile card with avatar, username, display name, bio, location, and stats.",
+    "category": "User Profile Card",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user profile card is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify profile details and stats are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Reset from not-found back to the empty search state",
+    "description": "This test verifies that after a not-found result, the user can retry or reset and return to the idle search state.",
+    "category": "Username Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a clearly non-existent GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a user-not-found error message is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the retry or reset control"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the empty search state is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Show up to six recent repositories for a valid user",
+    "description": "This test verifies that the recent repositories section displays a repository grid with no more than six items for a successfully searched user.",
+    "category": "Recent Repositories",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the recent repositories section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify up to six repositories are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Show a fallback when the user has no public repositories",
+    "description": "This test verifies that the repositories section shows a fallback message when the searched user has no public repositories.",
+    "category": "Recent Repositories",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username with no public repositories"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the recent repositories section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an empty repositories fallback message is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC012",
+    "title": "Search again after a prior successful lookup",
+    "description": "This test verifies that searching for a different username after a successful lookup replaces the previous results with the new user's profile and repositories.",
+    "category": "Error and Reset States",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with another valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a user profile card is displayed for the new search"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a recent repositories section is displayed for the new search"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC013",
+    "title": "Search a new username after a successful lookup",
+    "description": "This test verifies that after viewing one user's results, the visitor can search for another username and see the new profile results replace the previous ones.",
+    "category": "Username Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user profile card is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a different valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new user profile card is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC014",
+    "title": "Clear the empty-search validation while typing",
+    "description": "This test verifies that after an empty-submit validation error, typing a username again clears the validation state.",
+    "category": "Username Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an inline validation message is visible for missing input"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the validation message is cleared"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC015",
+    "title": "Open the GitHub profile from the results view",
+    "description": "This test verifies that the user can open the searched GitHub profile link from the loaded results.",
+    "category": "User Profile Card",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user profile card is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Click the GitHub profile link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the profile link opens in a new tab or window"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC016",
+    "title": "Show loading before results appear for a username search",
+    "description": "This test verifies that submitting a username search shows a loading state before the profile and repository results are rendered.",
+    "category": "Error and Reset States",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a loading state is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the loading state is replaced by search results"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC017",
+    "title": "Open a repository from the results in a new tab",
+    "description": "This test verifies that a repository link in the recent repositories section opens in a new tab or window.",
+    "category": "Recent Repositories",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the search field with a valid GitHub username"
+      },
+      {
+        "type": "action",
+        "description": "Submit the search form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the recent repositories section is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Click a repository link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the repository link opens in a new tab or window"
+      }
+    ],
+    "priority": "Low"
+  }
+]
