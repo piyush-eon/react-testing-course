@@ -1,0 +1,61 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - React
+  - Vite
+  - Vitest
+routes:
+  - path: /
+    file: src/App.tsx
+    auth_required: false
+    description: Single-page GitHub user search interface
+features:
+  - name: Search GitHub user
+    description: Find a GitHub profile by username and render profile details
+    files:
+      - src/App.tsx
+      - src/components/SearchBar.tsx
+      - src/hooks/useGithubUser.ts
+      - src/components/UserCard.tsx
+    entry_route: /
+    user_interactions:
+      - Type a GitHub username into the search field
+      - Submit the search form
+      - Wait for loading indicator to complete
+      - View profile name, username, avatar, and stats
+    api_calls:
+      - method: GET
+        endpoint: https://api.github.com/users/:username
+    auth_required: false
+  - name: View recent repositories
+    description: Show up to six recently updated repositories for the searched user
+    files:
+      - src/hooks/useGithubUser.ts
+      - src/components/RepoList.tsx
+      - src/components/RepoItem.tsx
+    entry_route: /
+    user_interactions:
+      - Search for a valid GitHub username
+      - Scroll to repository section
+      - Open repository links in a new tab
+    api_calls:
+      - method: GET
+        endpoint: https://api.github.com/users/:username/repos?sort=updated&per_page=6
+    auth_required: false
+  - name: Error and retry states
+    description: Show meaningful errors for invalid users or network problems and allow reset
+    files:
+      - src/hooks/useGithubUser.ts
+      - src/components/ErrorMessage.tsx
+      - src/App.tsx
+    entry_route: /
+    user_interactions:
+      - Search for a non-existent username
+      - Read the error message
+      - Click retry/reset action to return to idle state
+    api_calls:
+      - method: GET
+        endpoint: https://api.github.com/users/:username
+    auth_required: false
+known_limitations: []

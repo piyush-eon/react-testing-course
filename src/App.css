@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Berkeley+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Berkeley+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap");
 
 *,
 *::before,
@@ -23,8 +23,8 @@
   --success: #3fb950;
   --error: #f85149;
   --error-bg: rgba(248, 81, 73, 0.1);
-  --mono: 'Berkeley Mono', 'Fira Code', monospace;
-  --sans: 'Instrument Sans', sans-serif;
+  --mono: "Berkeley Mono", "Fira Code", monospace;
+  --sans: "Instrument Sans", sans-serif;
   --radius: 10px;
   --radius-lg: 16px;
 }
@@ -39,7 +39,7 @@ body {
 
 /* Background subtle grid */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background-image:
@@ -68,8 +68,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -138,7 +137,9 @@ body::before {
   color: var(--text-primary);
   font-family: var(--mono);
   font-size: 0.9rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   outline: none;
 }
 
@@ -199,7 +200,9 @@ body::before {
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition:
+    background 0.15s,
+    transform 0.1s;
   white-space: nowrap;
   min-width: 90px;
   display: flex;
@@ -379,7 +382,10 @@ body::before {
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   text-decoration: none;
-  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    transform 0.15s;
 }
 
 .repo-item:hover {
@@ -518,7 +524,9 @@ body::before {
   font-family: var(--sans);
   font-size: 0.85rem;
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .retry-btn:hover {
@@ -550,7 +558,6 @@ body::before {
 }
 
 @keyframes pulse {
-
   0%,
   100% {
     opacity: 1;
